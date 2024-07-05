@@ -1,0 +1,71 @@
+// 1. Write code to display from 1 to 100 but just even numbers.
+let evenNumbers = [];
+for (let i = 1; i <= 100; i++) {
+  if (i % 2 === 0) {
+    evenNumbers.push(i);
+  }
+}
+console.log(evenNumbers.join(' '));
+
+//2.Write a function to calculate which can add, subtract, multiply and divide two numbers. Use switch inside function.
+function calculate(a, b, operator) {
+  let result;
+  switch (operator) {
+    case "+":
+      result = a + b;
+      break;
+    case "-":
+      result = a - b;
+      break;
+    case "*":
+      result = a * b;
+      break;
+    case "/":
+      if (b !== 0) {
+        result = a / b;
+      } else {
+        result = "Division by zero becomes infinite";
+      }
+      break;
+    default:
+      result = "Invalid operator";
+  }
+  return result;
+}
+
+/*3.You need to write a function findTax() that takes a number type variable as an argument which is the salary of a person. You need to calculate the tax amount on his salary by using the Js switch control flow. The tax rates are given below.
+if 500000 >= salary > 0 then 0% tax on the entire salary.
+If 1000000 >= salary > 500000 then 10% tax on the entire salary.
+If 1500000 >= salary > 1000000 then 20% tax on the entire salary.
+If the salary > 1500000 then 30% tax on the entire salary.*/
+function findTax(Psalary) {
+  let taxAmount;
+  switch(true) {
+    case(Psalary>0 && Psalary<=500000):
+      taxAmount = Psalary* 0;
+      break;
+    case(Psalary>500000 && Psalary<=1000000):
+      taxAmount = Psalary * 0.1;
+      break;
+    case(Psalary>1000000 && Psalary<= 1500000):
+      taxAmount=Psalary * 0.2;
+      break;
+    case(Psalary>1500000):
+      taxAmount=Psalary * 0.3;
+      break;
+    default:
+      taxAmount='Invalid salary';
+  }
+  return taxAmount;
+}
+
+//4.Write a function to perform this. You are given two numbers n1 and n2. You need to find the sum of the products of their corresponding digits. So, for a number n1= 6 and n2 = 34, you'll do (6*4)+(0*3) = 24.
+function sumofproducts(a,b) {
+  let sum = 0;
+  while(a>0||b>0){
+      sum+=(a% 10)*(b % 10);
+      a=Math.floor(a/10);
+      b=Math.floor(b/10);
+  }
+  return sum;
+}

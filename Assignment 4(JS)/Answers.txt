@@ -1,0 +1,92 @@
+1. function swapTheme() {
+            var appDiv = document.getElementById('app');
+            var swapButton = document.getElementById('swap');
+
+            if (appDiv.classList.contains('day')) {
+                appDiv.classList.remove('day');
+                appDiv.classList.add('night');
+                swapButton.classList.remove('button_day');
+                swapButton.classList.add('button_night');
+            } else {
+                appDiv.classList.remove('night');
+                appDiv.classList.add('day');
+                swapButton.classList.remove('button_night');
+                swapButton.classList.add('button_day');
+            }
+    }
+
+2.function createDiv(width, height, text) {
+    const newDiv = document.createElement('div');
+    newDiv.style.width = width + 'px';
+    newDiv.style.height = height + 'px';
+    newDiv.textContent = text;
+    const container = document.getElementById('container');
+    container.appendChild(newDiv);
+ }
+ //Do not change this code
+ window.createDiv = createDiv;
+
+3.// your js code goes here
+function toggleVisibility() {
+    var paragraph = document.getElementById("useless-paragraph");
+    if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+    } else {
+        paragraph.style.display = "none";
+    }    
+}
+
+4.// javascript code goes here
+document.getElementById('colorchange').addEventListener('click', function() {
+    var color = document.getElementById('colorbox').value;
+    document.getElementById('text-container').style.color = color;
+});
+document.getElementById('fontsize').addEventListener('input', function() {
+    var size = document.getElementById('fontsize').value;
+    document.getElementById('text-container').style.fontSize = size + 'px';
+});
+document.getElementById('italic').addEventListener('click', function() {
+    var text = document.getElementById('text-container');
+    if (text.style.fontStyle === 'italic') {
+        text.style.fontStyle = 'normal';
+    } else {
+        text.style.fontStyle = 'italic';
+    }
+});
+document.getElementById('underline').addEventListener('click', function() {
+    var text = document.getElementById('text-container');
+    if (text.style.textDecoration === 'underline') {
+        text.style.textDecoration = 'none';
+    } else {
+        text.style.textDecoration = 'underline';
+    }
+});
+document.getElementById('bold').addEventListener('click', function() {
+    var text = document.getElementById('text-container');
+    if (text.style.fontWeight === 'bold') {
+        text.style.fontWeight = 'normal';
+    } else {
+        text.style.fontWeight = 'bold';
+    }
+});
+document.getElementById('list').addEventListener('change', function() {
+    var font = document.getElementById('list').value;
+    document.getElementById('text-container').style.fontFamily = font;
+});
+document.getElementById('getstyle').addEventListener('click', function() {
+    var text = document.getElementById('text-container');
+    var style = window.getComputedStyle(text);
+    var color = style.color;
+    var fontSize = style.fontSize;
+    var fontStyle = style.fontStyle;
+    var textDecoration = style.textDecorationLine;
+    var fontWeight = style.fontWeight;
+    var fontFamily = style.fontFamily;
+    document.getElementById('css-props').innerText =
+        'color: ' + color + '; ' +
+        'font-size: ' + fontSize + '; ' +
+        'font-style: ' + fontStyle + '; ' +
+        'text-decoration: ' + textDecoration + '; ' +
+        'font-weight: ' + fontWeight + '; ' +
+        'font-family: ' + fontFamily + ';';
+});
